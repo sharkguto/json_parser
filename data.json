@@ -1,0 +1,33 @@
+{
+    "index1": 100,
+    "index2": null,
+    "index3": 0,
+    "lista": [
+        {
+            "indexa1": 200,
+            "indexa2": 200,
+            "indexa3": null,
+            "listb": [
+                {
+                    "levelb": "testing"
+                },
+                {
+                    "levelb": null
+                }
+            ],
+            "dictc": {
+                "listc": [
+                    {
+                        "levelc": null
+                    },
+                    {
+                        "levelc": null
+                    },
+                    {
+                        "levelc": "testingc"
+                    }
+                ]
+            }
+        }
+    ]
+}
