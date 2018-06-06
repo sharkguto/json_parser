@@ -47,11 +47,19 @@ def check_json(d, schema):
         if isinstance(v, dict):
             check_json(v, schema[k])
         elif isinstance(v, list):
-            for list_i in v:
-                check_json(list_i, schema[k][0])
+            if v and not isinstance(v[0], dict):
+                schema_return = schema[k]
+                func_check = mapper_types[list]
+                json_parser[k] = func_check(
+                        json_parser[k], schema_return)
+            else:                    
+                for list_i in v:
+                    check_json(list_i, schema[k][0])
         else:
             schema_return = schema[k]
-            func_check = mapper_types[type(schema_return)]
+            func_check = mapper_types[type(
+                    schema_return) if schema_return is not None
+                    else schema_return]
             d[k] = func_check(d[k], schema_return)
 
 
